@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./LogoEdu.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- Header -->
+    <header class="header-nav">
+        <div class="logo-container">
+            <a href="index.html"><img src="./LogoEdu.png" alt="3edu+ Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="formation.html">Formations</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher des formations..." class="search-input">
+                <button class="search-btn" id="search-btn" title="Rechercher">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <a href="cart.html" class="cart-icon" title="Panier">
+                <img src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png" width="30" height="30" alt="Panier">
+            </a>
+            <button class="login-btn">Connexion</button>
+        </div>
+    </header>
+
+
+    <section>
+        <h1>Nos Formations</h1>
+        <p>Découvrez notre catalogue de formations professionnelles</p>
+    </section>
+
+
+    <article>
+        <div><i class="fa-solid fa-filter"></i>Filtres</div>
+        <label for="">Rechercher</label>
+        <div>
+            <i class="fas fa-search"></i><input type="search" placeholder="Rechercher une formation">
+        </div>
+
+        <form action="#">
+
+            <h5>Catégories</h5>
+            <input type="checkbox">labelutes</label>
+            <input type="checkbox">labelveloppement Web</label>
+            <input type="checkbox">labelsign & UX</label>
+            <input type="checkbox">labelrketing Digital</label>
+            <input type="checkbox">
+            <label>Data Science</label>
+
+
+
+            <!--niveau-->
+            <h5>Niveau</h5>
+            <input type="checkbox">
+            <label>Tous niveaux</label>
+            <input type="checkbox">
+            <label>Débutant</label>
+            <input type="checkbox">
+            <label>Intermédiaire</label>
+            <input type="checkbox">
+            <label>Avancé</label>
+
+            <!--Prix-->
+            <h5>Niveau</h5>
+            <input type="checkbox">
+            <label>Moins de 300€</label>
+            <input type="checkbox">
+            <label>300€ - 500€</label>
+            <input type="checkbox">
+            <label>Plus de 500€</label>
+
+
+
+        </form>
+
+    </article>
+
+
+
+
+    <div>
+        <p></p>
+        <select name="selectFormations" id="Select-Formations">
+            <option value="PlusPopulaire">Plus populaire</option>
+            <option value="plusRécent">plus récent</option>
+            <option value="PlusCroissant">plus croissant</option>
+            <option value="PlusDécroissant">plus décroissant</option>
+            <option value="MieuxNoté">Mieux noté</option>
+        </select>
+    </div>
+
+    
+        <div class="courses-grid">
+            <div class="course-card" data-course-id="1">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop"
+                        alt="Développement Web Full Stack">
+                    <div class="course-overlay">
+                        <span class="course-badge">Populaire</span>
+                    </div>
+                </div>
+                <div class="course-card-header">
+                    <div class="course-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                    </div>
+                    <h6>Développement Web</h6>
+                    <h3 class="course-title">Développement Web Full Stack</h3>
+                    <p class="course-instructor">Jean Dupont</p>
+                    <p class="course-instructor">Maîtrisez le développement web de A à Z avec React, Node.js et MongoDB.</p>
+                    <div class="course-stats">
+                        <span>1234 étudiants</span>
+                        <span>48 leçons</span>
+                        <span>12 semaines</span>
+                    </div>
+                </div>
+                <div class="course-card-footer">
+                    <span class="course-price">599€</span>
+                    <button class="course-btn"
+                        onclick="addToCart('1', 'Développement Web Full Stack', 'Jean Dupont', '599', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop', '1234', '12 semaines')">Ajouter
+                        au panier</button>
+                </div>
+            </div>
+
+            <div class="course-card" data-course-id="2">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop"
+                        alt="Data Science & IA">
+                    <div class="course-overlay">
+                        <span class="course-badge">Nouveau</span>
+                    </div>
+                </div>
+                <div class="course-card-header">
+                    <div class="course-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9</span>
+                    </div>
+                    <h3 class="course-title">Data Science & IA</h3>
+                    <p class="course-instructor">Sophie Martin</p>
+                    <div class="course-stats">
+                        <span>856 étudiants</span>
+                        <span>16 semaines</span>
+                    </div>
+                </div>
+                <div class="course-card-footer">
+                    <span class="course-price">799€</span>
+                    <button class="course-btn"
+                        onclick="addToCart('2', 'Data Science & IA', 'Sophie Martin', '799', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop', '856', '16 semaines')">Ajouter
+                        au panier</button>
+                </div>
+            </div>
+<br>
+            <div class="course-card" data-course-id="3">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=250&fit=crop"
+                        alt="UX/UI Design Master Class">
+                    <div class="course-overlay">
+                        <span class="course-badge">Populaire</span>
+                    </div>
+                </div>
+                <div class="course-card-header">
+                    <div class="course-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                    </div>
+                    <h3 class="course-title">UX/UI Design Master Class</h3>
+                    <p class="course-instructor">Marie Claire</p>
+                    <div class="course-stats">
+                        <span>892 étudiants</span>
+                        <span>10 semaines</span>
+                    </div>
+                </div>
+                <div class="course-card-footer">
+                    <span class="course-price">499€</span>
+                    <button class="course-btn"
+                        onclick="addToCart('3', 'UX/UI Design Master Class', 'Marie Claire', '499', 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=250&fit=crop', '892', '10 semaines')">Ajouter
+                        au panier</button>
+                </div>
+            </div>
+            <div class="course-card" data-course-id="1">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop"
+                        alt="Développement Web Full Stack">
+                    <div class="course-overlay">
+                        <span class="course-badge">Populaire</span>
+                    </div>
+                </div>
+                <div class="course-card-header">
+                    <div class="course-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                    </div>
+                    <h6>Développement Web</h6>
+                    <h3 class="course-title">Développement Web Full Stack</h3>
+                    <p class="course-instructor">Jean Dupont</p>
+                    <p class="course-instructor">Maîtrisez le développement web de A à Z avec React, Node.js et MongoDB.</p>
+                    <div class="course-stats">
+                        <span>1234 étudiants</span>
+                        <span>48 leçons</span>
+                        <span>12 semaines</span>
+                    </div>
+                </div>
+                <div class="course-card-footer">
+                    <span class="course-price">599€</span>
+                    <button class="course-btn"
+                        onclick="addToCart('1', 'Développement Web Full Stack', 'Jean Dupont', '599', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop', '1234', '12 semaines')">Ajouter
+                        au panier</button>
+                </div>
+            </div>
+<br>
+<div class="course-card" data-course-id="1">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop"
+            alt="Développement Web Full Stack">
+        <div class="course-overlay">
+            <span class="course-badge">Populaire</span>
+        </div>
+    </div>
+    <div class="course-card-header">
+        <div class="course-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8</span>
+        </div>
+        <h6>Développement Web</h6>
+        <h3 class="course-title">Développement Web Full Stack</h3>
+        <p class="course-instructor">Jean Dupont</p>
+        <p class="course-instructor">Maîtrisez le développement web de A à Z avec React, Node.js et MongoDB.</p>
+        <div class="course-stats">
+            <span>1234 étudiants</span>
+            <span>48 leçons</span>
+            <span>12 semaines</span>
+        </div>
+    </div>
+    <div class="course-card-footer">
+        <span class="course-price">599€</span>
+        <button class="course-btn"
+            onclick="addToCart('1', 'Développement Web Full Stack', 'Jean Dupont', '599', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop', '1234', '12 semaines')">Ajouter
+            au panier</button>
+    </div>
+</div>
+
+<div class="course-card" data-course-id="1">
+    <div class="course-image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop"
+            alt="Développement Web Full Stack">
+        <div class="course-overlay">
+            <span class="course-badge">Populaire</span>
+        </div>
+    </div>
+    <div class="course-card-header">
+        <div class="course-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8</span>
+        </div>
+        <h6>Développement Web</h6>
+        <h3 class="course-title">Développement Web Full Stack</h3>
+        <p class="course-instructor">Jean Dupont</p>
+        <p class="course-instructor">Maîtrisez le développement web de A à Z avec React, Node.js et MongoDB.</p>
+        <div class="course-stats">
+            <span>1234 étudiants</span>
+            <span>48 leçons</span>
+            <span>12 semaines</span>
+        </div>
+    </div>
+    <div class="course-card-footer">
+        <span class="course-price">599€</span>
+        <button class="course-btn"
+            onclick="addToCart('1', 'Développement Web Full Stack', 'Jean Dupont', '599', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop', '1234', '12 semaines')">Ajouter
+            au panier</button>
+    </div>
+</div>
+<br>
+
+<div>
+    <button>Précédent</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>Suivant</button>
+</div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./LogoEdu.png" alt="3edu+ Logo" width="150" height="100">
+                        <p>Votre partenaire de formation professionnelle pour développer vos compétences et accélérer votre
+                            carrière.</p>
+                    </div>
+                </div>
+    
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Nos formations</a></li>
+                        <li><a href="#">Événements</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-section">
+                    <h3>Catégories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Développement Web</a></li>
+                        <li><a href="#">Design & UX</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                        <li><a href="#">Data Science</a></li>
+                        <li><a href="#">Cybersécurité</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Avenue de la Formation<br>75001 Paris, France</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+33 1 23 45 67 89</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@3eduplus.fr</span>
+                        </div>
+                    </div>
+    
+                    <div class="demo-access">
+                        <h4>Accès démo</h4>
+                        <div class="demo-buttons">
+                            <button class="demo-btn admin">Admin</button>
+                            <button class="demo-btn marketing">Marketing</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+    
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Recevez nos dernières actualités</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Votre email" class="newsletter-input">
+                            <button class="newsletter-btn">S'abonner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 3edu+ Centre de Formation. Tous droits réservés.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Mentions légales</a>
+                        <a href="#">Politique de confidentialité</a>
+                        <a href="#">CGV</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+
+</body>
+
+</html>
