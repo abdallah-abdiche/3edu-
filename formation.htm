@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3edu+ - Nos Formations</title>
+    <link rel="stylesheet" href="formation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>3edu+</span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="#" class="nav-link active">Formations</a></li>
+                    <li><a href="evenements.htm" class="nav-link">Événements</a></li>
+                    <li><a href="about.html" class="nav-link">À propos</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart nav-icon"></i>
+                  </a>
+                <button class="login-btn" onclick="window.location.href='login.html'">Connexion</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Nos Formations</h1>
+            <p>Découvrez notre catalogue de formations professionnelles</p>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3><i class="fas fa-filter"></i> Filtres</h3>
+                    
+                    <!-- Search -->
+                    <div class="filter-group">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Rechercher une formation" id="searchInput">
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Catégorie</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="all" checked>
+                                <span class="checkmark"></span>
+                                Toutes
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="web-dev">
+                                <span class="checkmark"></span>
+                                Développement Web
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="design">
+                                <span class="checkmark"></span>
+                                Design & UX
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="marketing">
+                                <span class="checkmark"></span>
+                                Marketing Digital
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="data">
+                                <span class="checkmark"></span>
+                                Data Science
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Level Filter -->
+                    <div class="filter-group">
+                        <h4>Niveau</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="level" value="all" checked>
+                                <span class="checkmark"></span>
+                                Tous niveaux
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="level" value="beginner">
+                                <span class="checkmark"></span>
+                                Débutant
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="level" value="intermediate">
+                                <span class="checkmark"></span>
+                                Intermédiaire
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="level" value="advanced">
+                                <span class="checkmark"></span>
+                                Avancé
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Prix</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="price" value="under-300">
+                                <span class="checkmark"></span>
+                                Moins de 300€
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="price" value="300-500">
+                                <span class="checkmark"></span>
+                                300€-500€
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="price" value="over-500">
+                                <span class="checkmark"></span>
+                                Plus de 500€
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <section class="main-content">
+                <div class="content-header">
+                    <span class="course-count">6 formations disponibles</span>
+                    <div class="sort-dropdown">
+                        <select id="sortSelect">
+                            <option value="popular">Plus populaire</option>
+                            <option value="price-low">Prix croissant</option>
+                            <option value="price-high">Prix décroissant</option>
+                            <option value="rating">Mieux notés</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Course Grid -->
+                <div class="course-grid" id="courseGrid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card" data-category="web-dev" data-level="intermediate" data-price="599">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Développement web</div>
+                            <h3 class="course-title">Développement Web Full Stack</h3>
+                            <p class="course-instructor">Par Jean Dupont</p>
+                            <p class="course-description">Maîtrisez le développement web de A à Z avec React, Node.js et MongoDB.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>12 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>42 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>1234</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">599€</div>
+                                <div class="course-level">Intermédiaire</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card" data-category="design" data-level="all" data-price="499">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Design & UX</div>
+                            <h3 class="course-title">UX/UI Design Master Class</h3>
+                            <p class="course-instructor">Par Marie Claire</p>
+                            <p class="course-description">Apprenez à créer des interfaces utilisateur exceptionnelles avec Figma.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>40 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>499</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">499€</div>
+                                <div class="course-level">Tous niveaux</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card" data-category="marketing" data-level="advanced" data-price="449">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Marketing Digital</div>
+                            <h3 class="course-title">Marketing Digital Avancé</h3>
+                            <p class="course-instructor">Par Pierre Martin</p>
+                            <p class="course-description">Stratégies avancées de marketing digital et growth hacking.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>8 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>32 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>756</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">449€</div>
+                                <div class="course-level">Avancé</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card" data-category="data" data-level="intermediate" data-price="649">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Data Science</div>
+                            <h3 class="course-title">Data Science avec Python</h3>
+                            <p class="course-instructor">Par Sophie Bernard</p>
+                            <p class="course-description">Analysez et visualisez des données avec Python, Pandas et Matplotlib.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>14 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>56 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>654</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">649€</div>
+                                <div class="course-level">Intermédiaire</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 5 -->
+                    <div class="course-card" data-category="web-dev" data-level="intermediate" data-price="549">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Développement web</div>
+                            <h3 class="course-title">React & TypeScript</h3>
+                            <p class="course-instructor">Par Luc Moreau</p>
+                            <p class="course-description">Développez des applications React modernes avec TypeScript.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>45 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>1009</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">549€</div>
+                                <div class="course-level">Intermédiaire</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 6 -->
+                    <div class="course-card" data-category="marketing" data-level="beginner" data-price="349">
+                        <div class="course-image">
+                            <div class="image-placeholder"></div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Marketing Digital</div>
+                            <h3 class="course-title">SEO & Content Marketing</h3>
+                            <p class="course-instructor">Par Anne Dubois</p>
+                            <p class="course-description">Optimisez votre présence en ligne et créez du contenu engageant.</p>
+                            <div class="course-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>6 semaines</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>24 leçons</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>513</span>
+                                </div>
+                            </div>
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="course-price">349€</div>
+                                <div class="course-level">Débutant</div>
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                        Précédent
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number">1</button>
+                        <button class="pagination-number active">2</button>
+                        <button class="pagination-number">3</button>
+                    </div>
+                    <button class="pagination-btn next-btn">
+                        Suivant
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer class="footers">
+        <div class="footer-content">
+            <!-- Column 1: Company Info -->
+            <div class="footer-column">
+                <div class="company-info">
+                    <div class="logo-section">
+                        <div class="logo2">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="company-name">3edu<span class="plus">+</span></h3>
+                    </div>
+                    <p class="company-description">
+                        Centre de formation professionnelle offrant des programmes de qualité pour votre développement de compétences.
+                    </p>
+                    <div class="social-media">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="footer-column">
+                <h4 class="footer-heading">Liens rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Nos formations</a></li>
+                    <li><a href="evenements.htm">Événements</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Categories -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Catégories</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Développement Web</a></li>
+                    <li><a href="#">Design & UX</a></li>
+                    <li><a href="#">Marketing Digital</a></li>
+                    <li><a href="#">Data Science</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Avenue de la Formation, 75001 Paris, France</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@3eduplus.fr</span>
+                    </div>
+                </div>
+                
+                <div class="separator"></div>
+                
+                <div class="demo-access">
+                    <h5>Accès démo:</h5>
+                    <div class="demo-buttons">
+                        <button class="demo-btn">Admin</button>
+                        <button class="demo-btn">Marketing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>&copy; 2025 3edu+ Centre de Formation. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Help Button -->
+    <div class="help-button">
+        <i class="fas fa-question"></i>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

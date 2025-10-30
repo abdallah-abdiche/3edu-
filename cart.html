@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - 3edu+</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./LogoEdu.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-nav">
+        <div class="logo-container">
+            <a href="index.html"><img src="./LogoEdu.png" alt="3edu+ Logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="formation.htm">Formations</a></li>
+                <li><a href="evenements.htm">Événements</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Rechercher des formations..." class="search-input">
+                <button class="search-btn" id="search-btn" title="Rechercher">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <a href="cart.html" class="cart-icon active" title="Panier">
+                <img src="https://cdn-icons-png.flaticon.com/128/2838/2838895.png" width="30" height="30" alt="Panier">
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+            <a href="login.html" class="login-btn">Connexion</a>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button type="button" class="hamburger-menu" aria-label="Toggle navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-header">
+                <h1>Mon Panier</h1>
+                <p>Révisiez vos formations sélectionnées</p>
+            </div>
+
+            <div class="cart-content">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+
+                <!-- Empty Cart Message -->
+                <div class="empty-cart" id="empty-cart">
+                    <div class="empty-cart-content">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h2>Votre panier est vide</h2>
+                        <p>Découvrez nos formations et ajoutez-les à votre panier</p>
+                        <a href="index.html" class="btn-primary">Parcourir les formations</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary" id="cart-summary" style="display: none;">
+                    <div class="summary-card">
+                        <h3>Résumé de la commande</h3>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Sous-total</span>
+                                <span id="subtotal">0€</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Remise</span>
+                                <span id="discount">-0€</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="total">0€</span>
+                            </div>
+                        </div>
+                        <button class="checkout-btn" id="checkout-btn">
+                            <i class="fas fa-credit-card"></i>
+                            Procéder au paiement
+                        </button>
+                        <p class="security-note">
+                            <i class="fas fa-shield-alt"></i>
+                            Paiement sécurisé SSL
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="./LogoEdu.png" alt="3edu+ Logo" width="150" height="100">
+                    <p>Votre partenaire de formation professionnelle pour développer vos compétences et accélérer votre
+                        carrière.</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#">Nos formations</a></li>
+                    <li><a href="#">Événements</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@3eduplus.fr</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Avenue de la Formation<br>75001 Paris, France</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 3edu+ Centre de Formation. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Test.js"></script>
+    <script>
+        // Cart functionality
+        class ShoppingCart {
+            constructor() {
+                this.items = JSON.parse(localStorage.getItem('cart')) || [];
+                this.updateCartDisplay();
+            }
+
+            addItem(course) {
+                const existingItem = this.items.find(item => item.id === course.id);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    this.items.push({ ...course, quantity: 1 });
+                }
+                this.saveCart();
+                this.updateCartDisplay();
+            }
+
+            removeItem(courseId) {
+                this.items = this.items.filter(item => item.id !== courseId);
+                this.saveCart();
+                this.updateCartDisplay();
+            }
+
+            updateQuantity(courseId, quantity) {
+                const item = this.items.find(item => item.id === courseId);
+                if (item) {
+                    if (quantity <= 0) {
+                        this.removeItem(courseId);
+                    } else {
+                        item.quantity = quantity;
+                        this.saveCart();
+                        this.updateCartDisplay();
+                    }
+                }
+            }
+
+            saveCart() {
+                localStorage.setItem('cart', JSON.stringify(this.items));
+            }
+
+            updateCartDisplay() {
+                const cartItems = document.getElementById('cart-items');
+                const emptyCart = document.getElementById('empty-cart');
+                const cartSummary = document.getElementById('cart-summary');
+                const cartCount = document.getElementById('cart-count');
+
+                // Update cart count
+                const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+
+                if (this.items.length === 0) {
+                    emptyCart.style.display = 'block';
+                    cartSummary.style.display = 'none';
+                    cartItems.innerHTML = '';
+                } else {
+                    emptyCart.style.display = 'none';
+                    cartSummary.style.display = 'block';
+                    this.renderCartItems();
+                    this.updateSummary();
+                }
+            }
+
+            renderCartItems() {
+                const cartItems = document.getElementById('cart-items');
+                cartItems.innerHTML = this.items.map(item => `
+                    <div class="cart-item" data-id="${item.id}">
+                        <div class="item-image">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                        <div class="item-details">
+                            <h3>${item.title}</h3>
+                            <p class="item-instructor">${item.instructor}</p>
+                            <div class="item-stats">
+                                <span><i class="fas fa-users"></i> ${item.students} étudiants</span>
+                                <span><i class="fas fa-clock"></i> ${item.duration}</span>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn" onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="cart.updateQuantity('${item.id}', ${item.quantity + 1})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="item-price">
+                            <span class="price">${item.price}€</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-btn" onclick="cart.removeItem('${item.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            updateSummary() {
+                const subtotal = this.items.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity), 0);
+                const discount = subtotal > 500 ? subtotal * 0.1 : 0; // 10% discount for orders over 500€
+                const total = subtotal - discount;
+
+                document.getElementById('subtotal').textContent = `${subtotal.toFixed(2)}€`;
+                document.getElementById('discount').textContent = `-${discount.toFixed(2)}€`;
+                document.getElementById('total').textContent = `${total.toFixed(2)}€`;
+            }
+
+            clearCart() {
+                this.items = [];
+                this.saveCart();
+                this.updateCartDisplay();
+            }
+        }
+
+        // Initialize cart
+        const cart = new ShoppingCart();
+
+        // Checkout functionality
+        document.getElementById('checkout-btn').addEventListener('click', function () {
+            if (cart.items.length === 0) {
+                alert('Votre panier est vide');
+                return;
+            }
+
+            // Here you would integrate with payment system
+            alert('Redirection vers le système de paiement...');
+        });
+
+        // Add sample courses to cart for demonstration
+        function addSampleCourses() {
+            const sampleCourses = [
+                {
+                    id: '1',
+                    title: 'Développement Web Full Stack',
+                    instructor: 'Jean Dupont',
+                    price: '599',
+                    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop',
+                    students: '1234',
+                    duration: '12 semaines'
+                },
+                {
+                    id: '2',
+                    title: 'UX/UI Design Master Class',
+                    instructor: 'Marie Claire',
+                    price: '499',
+                    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=250&fit=crop',
+                    students: '892',
+                    duration: '10 semaines'
+                }
+            ];
+
+            // Add sample courses if cart is empty
+            if (cart.items.length === 0) {
+                sampleCourses.forEach(course => cart.addItem(course));
+            }
+        }
+
+        // Add sample courses on page load for demonstration
+        document.addEventListener('DOMContentLoaded', function () {
+            addSampleCourses();
+        });
+    </script>
+</body>
+
+</html>
