@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedu+ - Événements & Webinaires</title>
+    <link rel="stylesheet" href="evenements.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="logo-icon"></div>
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="logo-text">Jedu+</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="formation.htm" class="nav-link">Formations</a>
+                <a href="#" class="nav-link active">Événements</a>
+                <a href="about.html" class="nav-link">À propos</a>
+            </div>
+            <div class="nav-actions">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart nav-icon"></i>
+                </a>
+                <button class="btn-login" onclick="window.location.href='login.html'">Connexion</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Événements & Webinaires</span>
+            <h1 class="hero-title">Rejoignez nos événements</h1>
+            <p class="hero-description">Participez à nos webinaires, ateliers et conférences pour enrichir vos compétences et rencontrer notre communauté.</p>
+            <button class="btn-hero">
+                Voir tous les événements
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Filter and Stats Section -->
+    <section class="filter-stats">
+        <div class="container">
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">Tout</button>
+                <button class="filter-tab" data-filter="online">En ligne</button>
+                <button class="filter-tab" data-filter="in-person">Présentiel</button>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Événements à venir</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Cette semaine</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">850+</div>
+                    <div class="stat-label">Participants inscrits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45</div>
+                    <div class="stat-label">Événements passés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <div class="events-grid" id="eventsGrid">
+                <!-- Event Card 1 -->
+                <div class="event-card" data-type="online">
+                    <div class="event-tag online">En ligne</div>
+                    <div class="event-price free">Gratuit</div>
+                    <div class="event-category">Développement Web</div>
+                    <h3 class="event-title">Webinaire: Introduction au développement web moderne</h3>
+                    <p class="event-instructor">Par Jean Dupont</p>
+                    <p class="event-description">Découvrez les fondamentaux du développement web moderne avec React et TypeScript.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>25 Janvier 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>12:00 - 20:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-globe"></i>
+                            <span>En ligne</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>156/200 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="event-card" data-type="in-person">
+                    <div class="event-tag in-person">Présentiel</div>
+                    <div class="event-price paid">99€</div>
+                    <div class="event-category">Design & UX</div>
+                    <h3 class="event-title">Atelier pratique: UI/UX Design avec Figma</h3>
+                    <p class="event-instructor">Par Marie Claire</p>
+                    <p class="event-description">Atelier pratique pour apprendre à créer des interfaces modernes avec Figma.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>28 Janvier 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>14:00 - 17:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Paris - Centre Jedu+</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>12/20 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="event-card" data-type="online">
+                    <div class="event-tag online">En ligne</div>
+                    <div class="event-price free">Gratuit</div>
+                    <div class="event-category">Marketing Digital</div>
+                    <h3 class="event-title">Conférence: Stratégies de Marketing Digital 2025</h3>
+                    <p class="event-instructor">Par Pierre Martin</p>
+                    <p class="event-description">Les dernières tendances et stratégies efficaces pour votre marketing digital.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>2 Février 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>10:00 - 12:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-globe"></i>
+                            <span>En ligne</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>234/300 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="event-card" data-type="in-person">
+                    <div class="event-tag in-person">Présentiel</div>
+                    <div class="event-price paid">99€</div>
+                    <div class="event-category">Data Science</div>
+                    <h3 class="event-title">Workshop: Data Science avec Python</h3>
+                    <p class="event-instructor">Par Sophie Bernard</p>
+                    <p class="event-description">Journée complète dédiée à l'analyse de données avec Python et ses librairies.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>5 Février 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>09:00 - 17:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lyon - Centre Jedu+</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>4/15 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="event-card" data-type="online">
+                    <div class="event-tag online">En ligne</div>
+                    <div class="event-price free">Gratuit</div>
+                    <div class="event-category">Marketing Digital</div>
+                    <h3 class="event-title">Masterclass: SEO et référencement naturel</h3>
+                    <p class="event-instructor">Par Anne Dubois</p>
+                    <p class="event-description">Optimisez votre présence en ligne avec les meilleures pratiques SEO.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>8 Février 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>15:00 - 18:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-globe"></i>
+                            <span>En ligne</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>89/150 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="event-card" data-type="online">
+                    <div class="event-tag online">En ligne</div>
+                    <div class="event-price paid">99€</div>
+                    <div class="event-category">Développement Web</div>
+                    <h3 class="event-title">Session: Portfolio pour développeurs</h3>
+                    <p class="event-instructor">Par Luc Moreau</p>
+                    <p class="event-description">Créez un portfolio qui vous démarque et attire les recruteurs.</p>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>12 Février 2025</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>19:00 - 21:00</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-globe"></i>
+                            <span>En ligne</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-users"></i>
+                            <span>67/100 inscrits</span>
+                        </div>
+                    </div>
+                    <button class="btn-register">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Organisez votre événement avec nous</h2>
+            <p class="cta-description">Vous êtes un expert dans votre domaine ? Proposez un webinaire ou un atelier pour partager vos connaissances avec notre communauté.</p>
+            <button class="btn-cta">Proposer un événement</button>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Column 1: Company Info -->
+            <div class="footer-column">
+                <div class="company-info">
+                    <div class="logo-section">
+                        <div class="logo">
+                            <div class="logo2">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <h3 class="company-name">3edu<span class="plus">+</span></h3>
+                    </div>
+                    <p class="company-description">
+                        Centre de formation professionnelle offrant des programmes de qualité pour votre développement de compétences.
+                    </p>
+                    <div class="social-media">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Liens rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Nos formations</a></li>
+                    <li><a href="#">Événements</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Categories -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Catégories</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Développement Web</a></li>
+                    <li><a href="#">Design & UX</a></li>
+                    <li><a href="#">Marketing Digital</a></li>
+                    <li><a href="#">Data Science</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Avenue de la Formation, 75001 Paris, France</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@3eduplus.fr</span>
+                    </div>
+                </div>
+                
+                <div class="separator"></div>
+                
+                <div class="demo-access">
+                    <h5>Accès démo:</h5>
+                    <div class="demo-buttons">
+                        <button class="demo-btn">Admin</button>
+                        <button class="demo-btn">Marketing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>&copy; 2025 3edu+ Centre de Formation. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Help Button -->
+    <div class="help-button">
+        <i class="fas fa-question"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
